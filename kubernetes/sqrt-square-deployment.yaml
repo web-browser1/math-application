@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqrt-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sqrt
+  template:
+    metadata:
+      labels:
+        app: sqrt
+    spec:
+      containers:
+        - name: sqrt
+          image: sqrt:latest
+          ports:
+            - containerPort: 8080

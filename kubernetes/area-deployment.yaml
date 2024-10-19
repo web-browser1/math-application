@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: area-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: area
+  template:
+    metadata:
+      labels:
+        app: area
+    spec:
+      containers:
+        - name: area
+          image: area:latest
+          ports:
+            - containerPort: 8080

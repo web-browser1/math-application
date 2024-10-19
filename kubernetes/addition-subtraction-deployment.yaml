@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addsub-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: addsub
+  template:
+    metadata:
+      labels:
+        app: addsub
+    spec:
+      containers:
+        - name: addsub
+          image: addsub:latest
+          ports:
+            - containerPort: 8080
